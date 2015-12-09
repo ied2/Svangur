@@ -1,14 +1,67 @@
 extends layout
 
 block content
-	div.navbar.navbar-inverse.navbar-fixed-top
-			div.navbar-header
-				a.navbar-brand.hidden-xs.navbar-left Svangur
-				a.navbar-brand.visible-xs.navbar-left S
-				form.navbar-form.navbar-header
-					div.input-group
-						input.form-control
-						div.input-group-btn
-							button.btn.btn-default Leita
+	div#wrapper
+		div#sidebar-wrapper
+			ul.sidebar-nav
+				li
+					a(href="#") Feelinglucky
+				li
+					div.checkbox
+						label Raða eftir fjarlægð
+						input#sortByDistance(type="checkbox")
+				li.hrLineBreak
+					hr(align="left" width="100%")
+				li.sidebar-brand Tegundir
+				li
+					div.checkbox
+						label Allt
+						input#allt(type="checkbox")
+				li.hrLineBreak
+					hr(align="left" width="100%")
+				li
+					div.checkbox
+						label Pizza
+						input#pizza(type="checkbox")
+				li
+					div.checkbox
+						label Hamborgari
+						input#hamburger(type="checkbox")
+				li
+					button#contactButton.btn.btn-default.btn-lg(data-toggle="modal" data-target="#contact") Hafa samband
+	button#slide.btn.btn-default.btn-sq-lg.btn-xl >
+	div#contact.modal.fade(role="dialog")
+		div.modal-dialog
+			div.modal-content
+				form.form-horizontal
+					div.modal-header
+						h4 Hafa Samband
+					div.modal-body
+						div.form-group
+							label.col-lg-2.control-label(for="contact-name") Nafn:
+							div.col-lg-10
+								input#contact-name.form-control(placeholder="Nafn")
+						div.form-group
+							label.col-lg-2.control-label(for="contact-email") Netfang:
+							div.col-lg-10
+								input#contact-email.form-control(type="email" placeholder="Netfangið þitt")
+						div.form-group
+							label.col-lg-2.control-label(for="contact-msg") Skilaboð:
+							div.col-lg-10
+								textarea#contact-msg.form-control(rows="10")
+					div.modal-footer
+						a.btn.btn-default(data-dismiss="modal") Close
+						button.btn.btn-primary(type="submit") Senda
 	div.container-fluid
-		div(style="width:100px; height:100px; background-color:#999;") Hallo
+		div.row.res-data
+			div
+				img(src="https://pbs.twimg.com/profile_images/590131813059850240/GMUUGCGW.jpg")
+			div
+				img(src="https://pbs.twimg.com/profile_images/590131813059850240/GMUUGCGW.jpg")
+
+
+
+
+
+
+

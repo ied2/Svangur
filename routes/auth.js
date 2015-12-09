@@ -13,7 +13,7 @@ var users = require('../lib/users');
 // router.get('/create', createForm);
 // router.post('/create', createHandler);
 // router.get('/searching', searchForm);
-// router.get('/getDiary', getDiary);
+router.get('/getRestaurants', getRestaurants);
 // router.get('/delete', deleteDiary);
 
 
@@ -33,16 +33,17 @@ function searchForm(req, res) {
   });
 }
 
-function getDiary(req, res) {
+function getRestaurants(req, res) {
   // Current logged in user
-  var user = req.session.user.username;
-  var id = req.query.id;
+  // var user = req.session.user.username;
+  // var id = req.query.id;
   // console.log("id: "+req.query.id);
   // console.log("inc console.dir");
   // console.dir(req);
 
-   users.listDiary(user, id, function (err, all) {
-    req.session.diaryID = all[0].id;
+   users.listRestaurants(function (err, all) {
+    // req.session.diaryID = all[0].id;
+    console.log(all);
     res.send(all);
   });
 }

@@ -8,7 +8,19 @@ html
     link(href='/stylesheets/Bootstrap/bootstrap.css', rel='stylesheet')
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/navbar.css')
+    link(rel='stylesheet', href='/stylesheets/simple-sidebar.css')
     script(type='text/javascript' src='/javascripts/jquery.js')
     script(type='text/javascript' src='/javascripts/bootstrap/Bootstrap.js')
+    script(type='text/javascript' src='/javascripts/simple-sidebar.js')
+    script(type='text/javascript' src='/javascripts/main.js')
   body
+    div.navbar.navbar-inverse.navbar-fixed-top
+        div.navbar-header
+            a.navbar-brand.hidden-xs.navbar-left Svangur
+            a.navbar-brand.visible-xs.navbar-left S
+            form.navbar-form.navbar-header
+                div.input-group
+                    input.form-control
+                    div.input-group-btn
+                        button.btn.btn-default Leita
     block content
