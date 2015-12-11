@@ -15,9 +15,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 
 var routes = require('./routes/index');
-var auth = require('./routes/auth');
 
-var viewCounter = require('./middleware/viewCounter');
 var errorHandler = require('./middleware/errorHandler');
 var notFoundHandler = require('./middleware/notFoundHandler');
 
@@ -45,9 +43,7 @@ app.use(session({
   name: 'session'
 }));
 
-app.use(viewCounter);
 app.use('/', routes);
-app.use('/', auth);
 
 app.use(notFoundHandler);
 app.use(errorHandler);

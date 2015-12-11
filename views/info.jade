@@ -1,0 +1,37 @@
+doctype html
+html
+	head
+		title= title
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(href='/stylesheets/Bootstrap/bootstrap.css', rel='stylesheet')
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='/stylesheets/navbar.css')
+		link(rel='stylesheet', href='/stylesheets/simple-sidebar.css')
+		script(type='text/javascript' src='/javascripts/jquery.js')
+		script(type='text/javascript' src='/javascripts/bootstrap/Bootstrap.js')
+		script(type='text/javascript' src='/javascripts/simple-sidebar.js')
+		script(type='text/javascript' src='/javascripts/main.js')
+	body
+		div.navbar.navbar-inverse.navbar-fixed-top
+			div.navbar-header
+				a.navbar-brand.hidden-xs.navbar-left(href="/") Svangur
+				a.navbar-brand.visible-xs.navbar-left(href="/") S
+	div#container-fluid-info.container-fluid
+		div.row
+			div.container-logo.col-xs-12.col-sm-6
+				img(src='#{logo}')
+			div.container-information.col-xs-12.col-sm-6
+				ul
+					li.name-container
+						span #{name}
+					li
+						span #{address}
+					li
+						img.phone(src="/images/phone.png")
+						span #{phoneNumber}
+					li.URL-container
+						span
+							img.hyperlink(src="/images/hyperlink.png")
+							a(href="http://www.#{url}") #{url}

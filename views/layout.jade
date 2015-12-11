@@ -16,11 +16,11 @@ html
   body
     div.navbar.navbar-inverse.navbar-fixed-top
         div.navbar-header
-            a.navbar-brand.hidden-xs.navbar-left Svangur
-            a.navbar-brand.visible-xs.navbar-left S
-            form.navbar-form.navbar-header
+            a.navbar-brand.hidden-xs.navbar-left(href="/") Svangur
+            a.navbar-brand.visible-xs.navbar-left(href="/") S
+            div.navbar-form.navbar-header
                 div.input-group
-                    input.form-control
+                    input#distanceInput.form-control(type="number" value="2")
                     div.input-group-btn
-                        button.btn.btn-default Leita
+                        button#searchButton.btn.btn-default Leita
     block content

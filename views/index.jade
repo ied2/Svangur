@@ -4,31 +4,70 @@ block content
 	div#wrapper
 		div#sidebar-wrapper
 			ul.sidebar-nav
-				li
-					a(href="#") Feelinglucky
-				li
-					div.checkbox
-						label Raða eftir fjarlægð
-						input#sortByDistance(type="checkbox")
-				li.hrLineBreak
-					hr(align="left" width="100%")
+				//- li
+				//- 	a(href="#") Feelinglucky
+				//- li
+				//- 	div.checkbox
+				//- 		label Raða eftir fjarlægð
+				//- 		input#sortByDistance(type="checkbox")
+				//- li.hrLineBreak
+				//- 	hr(align="left" width="100%")
 				li.sidebar-brand Tegundir
-				li
-					div.checkbox
-						label Allt
-						input#allt(type="checkbox")
 				li.hrLineBreak
 					hr(align="left" width="100%")
 				li
 					div.checkbox
-						label Pizza
-						input#pizza(type="checkbox")
+						label(for="all") Allt
+						input#all(type="checkbox" checked)
+				//- li.hrLineBreak
+				//- 	hr(align="left" width="100%")
 				li
 					div.checkbox
-						label Hamborgari
-						input#hamburger(type="checkbox")
+						label(for="pizza") Pizza
+						input#pizza.check(type="checkbox" checked)
 				li
-					button#contactButton.btn.btn-default.btn-lg(data-toggle="modal" data-target="#contact") Hafa samband
+					div.checkbox
+						label(for="hamburger") Hamborgari
+						input#hamburger.check(type="checkbox" checked)
+				li
+					div.checkbox
+						label(for="sushi") Sushi
+						input#sushi.check(type="checkbox" checked)
+				li
+					div.checkbox
+						label(for="seafood") Sjávarréttir
+						input#seafood.check(type="checkbox" checked)
+				li
+					div.checkbox
+						label(for="steak") Steik
+						input#steak.check(type="checkbox" checked)
+				li
+					div.checkbox
+						label(for="indian") Indverskur
+						input#indian.check(type="checkbox" checked)
+				li
+					div.checkbox
+						label(for="italian") Ítalskur
+						input#italian.check(type="checkbox" checked)
+				li
+					div.checkbox
+						label(for="asian") Asískur
+						input#asian.check(type="checkbox" checked)
+				li
+					div.checkbox
+						label(for="fastfood") Fast food
+						input#fastfood.check(type="checkbox" checked)
+				li
+					div.checkbox
+						label(for="fancy") Fansý
+						input#fancy.check(type="checkbox" checked)
+				li
+					div.checkbox
+						label(for="healthy") Hollur
+						input#healthy.check(type="checkbox" checked)
+				
+				//- li
+				//- 	button#contactButton.btn.btn-default.btn-lg(data-toggle="modal" data-target="#contact") Hafa samband
 	button#slide.btn.btn-default.btn-sq-lg.btn-xl >
 	div#contact.modal.fade(role="dialog")
 		div.modal-dialog
@@ -54,10 +93,6 @@ block content
 						button.btn.btn-primary(type="submit") Senda
 	div.container-fluid
 		div.row.res-data
-			div
-				img(src="https://pbs.twimg.com/profile_images/590131813059850240/GMUUGCGW.jpg")
-			div
-				img(src="https://pbs.twimg.com/profile_images/590131813059850240/GMUUGCGW.jpg")
 
 
 
