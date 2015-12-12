@@ -5,22 +5,22 @@ block content
 		div#sidebar-wrapper
 			ul.sidebar-nav
 				//- li
-				//- 	a(href="#") Feelinglucky
-				//- li
-				//- 	div.checkbox
-				//- 		label Raða eftir fjarlægð
-				//- 		input#sortByDistance(type="checkbox")
+				//- 	img.dice(src="/images/dice.png")
+				li
+					div.checkbox
+						label(for="sortByDistance") Raða eftir fjarlægð
+						input#sortByDistance(type="checkbox")
 				//- li.hrLineBreak
 				//- 	hr(align="left" width="100%")
-				li.sidebar-brand Tegundir
+				//- li.sidebar-brand Tegundir
 				li.hrLineBreak
 					hr(align="left" width="100%")
 				li
 					div.checkbox
-						label(for="all") Allt
+						label(for="all") Allt valið
 						input#all(type="checkbox" checked)
-				//- li.hrLineBreak
-				//- 	hr(align="left" width="100%")
+				li.hrLineBreak
+					hr(align="left" width="100%")
 				li
 					div.checkbox
 						label(for="pizza") Pizza

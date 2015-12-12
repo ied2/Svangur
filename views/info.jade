@@ -11,13 +11,14 @@ html
 		link(rel='stylesheet', href='/stylesheets/simple-sidebar.css')
 		script(type='text/javascript' src='/javascripts/jquery.js')
 		script(type='text/javascript' src='/javascripts/bootstrap/Bootstrap.js')
-		script(type='text/javascript' src='/javascripts/simple-sidebar.js')
-		script(type='text/javascript' src='/javascripts/main.js')
+		script(src='https://maps.googleapis.com/maps/api/js')
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+		script(type='text/javascript' src='/javascripts/info.js')
 	body
 		div.navbar.navbar-inverse.navbar-fixed-top
 			div.navbar-header
-				a.navbar-brand.hidden-xs.navbar-left(href="/") Svangur
-				a.navbar-brand.visible-xs.navbar-left(href="/") S
+				a.navbar-brand.hidden-xs.navbar-left(href="javascript:history.back()") Svangur
+				a.navbar-brand.visible-xs.navbar-left(href="javascript:history.back()") Svangur
 	div#container-fluid-info.container-fluid
 		div.row
 			div.container-logo.col-xs-12.col-sm-6
@@ -26,12 +27,22 @@ html
 				ul
 					li.name-container
 						span #{name}
-					li
+					li.address-container
 						span #{address}
-					li
-						img.phone(src="/images/phone.png")
-						span #{phoneNumber}
+					li.phone-container
+						span
+							img.phone(src="/images/phone.png")
+							if phoneNumber
+								span #{phoneNumber}
 					li.URL-container
 						span
 							img.hyperlink(src="/images/hyperlink.png")
-							a(href="http://www.#{url}") #{url}
+							if url
+								a(href="http://www.#{url}") #{url}
+		div.container-map.col-xs-12
+			div.button-center
+				button#driving.btn.btn-default Keyra
+				button#walking.btn.btn-default Ganga
+			div#map(longitude='#{longitude}' latitude='#{latitude}')
+		div.button-center.col-xs-12
+			button#backButton.btn.btn-default Til baka

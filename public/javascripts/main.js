@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
 var main = (function() {
 
     var listOfRestaurants;
+    var longitude;
+    var latitude;
     
 	
     function init() {
@@ -13,12 +15,19 @@ var main = (function() {
         var distanceInput = document.querySelector('#distanceInput');
         var distance = distanceInput.value;
         var allCheckBox = document.querySelector('#all');
+        var dice = document.querySelector('.dice');
+        var sort = document.querySelector('#sortByDistance');
 
         for(var i = 0; i < checkbox.length; i++) {
             checkbox[i].addEventListener('click', function() {
                 filter();
+                allCheckBox.checked = false;
             });
         }
+
+        sort.addEventListener('click', function () {
+            filter();
+        });
 
         allCheckBox.addEventListener('click', function() {
             if(allCheckBox.checked == true) {
@@ -39,7 +48,7 @@ var main = (function() {
             create(distance);
         });
 
-        create(distance);
+        getLocation();
 	}
 
     function create(distance) {
@@ -54,9 +63,8 @@ var main = (function() {
             type: "GET",
             url: '/getRestaurants',
             crossDomain: true,
-            data: {distance: distance},
+            data: {distance: distance, latitude: latitude, longitude: longitude},
             success: function (data) {
-                console.log(data);
                 listOfRestaurants = data;
                 filter();
             }
@@ -138,6 +146,8 @@ var main = (function() {
             }
         }
 
+        if(document.querySelector('#sortByDistance').checked == true) x.sort(sort_by("distance", false, function(a){return a}));
+
         var myNode = document.querySelector(".res-data");
         while (myNode.firstChild) {
             myNode.removeChild(myNode.firstChild);
@@ -165,30 +175,39 @@ var main = (function() {
         }
 }
 
+// Problem create() called twice
+function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+            var distanceInput = document.querySelector('#distanceInput');
+            var distance = distanceInput.value;
+            create(distance);
+        } else { 
+            console.log("Geolocation is not supported by this browser.");
+        }
+    }
+
+    function showPosition(position) {
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+        var distanceInput = document.querySelector('#distanceInput');
+        var distance = distanceInput.value;
+        create(distance);
+    }
+
+    var sort_by = function(field, reverse, primer) {
+        var key = primer ?
+            function(x) {return primer(x[field])} :
+            function(x) {return x[field]};
+
+        reverse = !reverse ? 1 : -1;
+
+        return function (a, b) {
+            return a = key(a), b = key(b), reverse * ((a > b) - (b > a));
+        }
+    }
+
   return {
     init: init,
   };
 })();
-
-
-
-
-function sortByDistance() {
-
-        var newList = listOfRestaurants;
-        newList.sort(sort_by("distance", false, function(a){return a}));
-
-    }
-
-    var sort_by = function(field, reverse, primer) {
-
-            var key = primer ?
-                function(x) {return primer(x[field])} :
-                function(x) {return x[field]};
-
-            reverse = !reverse ? 1 : -1;
-
-            return function (a, b) {
-                return a = key(a), b = key(b), reverse * ((a > b) - (b > a));
-        }
-    }
