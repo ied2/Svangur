@@ -30,7 +30,7 @@ google.maps.event.addDomListener(window, 'load', init);
 		directionsService = new google.maps.DirectionsService;
 		var map = new google.maps.Map(document.getElementById('map'), {
 			zoom: 14,
-			center: {lat: 64.1532475, lng: -22.0068169}
+			center: {lat: latitude, lng: longitude}
 		});
 		directionsDisplay.setMap(map);
 
@@ -44,7 +44,7 @@ google.maps.event.addDomListener(window, 'load', init);
 		destLongitude = parseFloat(destLongitude);
 
 	  	directionsService.route({
-		    origin: {lat: 64.1532475, lng: -22.0068169},
+		    origin: {lat: latitude, lng: longitude},
 		    destination: {lat: destLatitude, lng: destLongitude},
 		    travelMode: google.maps.TravelMode.DRIVING
 	  	}, function(response, status) {
