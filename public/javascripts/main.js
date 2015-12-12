@@ -181,7 +181,7 @@ function getLocation() {
             navigator.geolocation.getCurrentPosition(showPosition);
             var distanceInput = document.querySelector('#distanceInput');
             var distance = distanceInput.value;
-            create(distance);
+            // create(distance);
         } else { 
             console.log("Geolocation is not supported by this browser.");
         }
