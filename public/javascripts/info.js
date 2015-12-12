@@ -1,4 +1,4 @@
-google.maps.event.addDomListener(window, 'load', init);
+google.maps.event.addDomListener(window, 'load', initMap);
 
 	var latitude;
 	var longitude;
@@ -30,7 +30,7 @@ google.maps.event.addDomListener(window, 'load', init);
 		directionsService = new google.maps.DirectionsService;
 		var map = new google.maps.Map(document.getElementById('map'), {
 			zoom: 14,
-			center: {lat: latitude, lng: longitude}
+			center: {lat: 64.1532475, lng: -22.0068169}
 		});
 		directionsDisplay.setMap(map);
 
@@ -44,7 +44,7 @@ google.maps.event.addDomListener(window, 'load', init);
 		destLongitude = parseFloat(destLongitude);
 
 	  	directionsService.route({
-		    origin: {lat: latitude, lng: longitude},
+		    origin: {lat: 64.1532475, lng: -22.0068169},
 		    destination: {lat: destLatitude, lng: destLongitude},
 		    travelMode: google.maps.TravelMode.DRIVING
 	  	}, function(response, status) {
@@ -96,16 +96,16 @@ google.maps.event.addDomListener(window, 'load', init);
 	    });
 	}
 
-	function getLocation() {
-	    if (navigator.geolocation) {
-	        navigator.geolocation.getCurrentPosition(showPosition);
-	    } else { 
-	        console.log("Geolocation is not supported by this browser.");
-	    }
-	}
+	// function getLocation() {
+	//     if (navigator.geolocation) {
+	//         navigator.geolocation.getCurrentPosition(showPosition);
+	//     } else { 
+	//         console.log("Geolocation is not supported by this browser.");
+	//     }
+	// }
 
-    function showPosition(position) {
-        latitude = position.coords.latitude;
-        longitude = position.coords.longitude;
-        initMap();
-    }
+ //    function showPosition(position) {
+ //        latitude = position.coords.latitude;
+ //        longitude = position.coords.longitude;
+ //        initMap();
+ //    }
