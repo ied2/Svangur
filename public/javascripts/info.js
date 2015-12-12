@@ -1,4 +1,4 @@
-google.maps.event.addDomListener(window, 'load', initMap);
+google.maps.event.addDomListener(window, 'load', init);
 
 	var latitude;
 	var longitude;
@@ -96,7 +96,21 @@ google.maps.event.addDomListener(window, 'load', initMap);
 	    });
 	}
 
-	// function getLocation() {
+	function getLocation() {
+	    if (Modernizr.geolocation) {
+	        navigator.geolocation.getCurrentPosition(showPosition);
+	    } else { 
+	        console.log("Geolocation is not supported by this browser.");
+	    }
+	}
+
+    function showPosition(position) {
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+        initMap();
+    }
+
+ //    	function getLocation() {
 	//     if (navigator.geolocation) {
 	//         navigator.geolocation.getCurrentPosition(showPosition);
 	//     } else { 
