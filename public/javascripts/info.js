@@ -1,8 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
-  info.init();
-});
-
-var info = (function() {
+google.maps.event.addDomListener(window, 'load', init);
 
 	var latitude;
 	var longitude;
@@ -113,8 +109,3 @@ var info = (function() {
         longitude = position.coords.longitude;
         initMap();
     }
-
-     return {
-    init: init,
-  };
-})();
