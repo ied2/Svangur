@@ -15,7 +15,10 @@ module.exports = router;
 /** route middlewares **/
 
 function index(req, res, next) {
-  res.render('index', { title: 'Info - Svangur' });
+  var userLatitude = req.session.userLatitude;
+  var userLongitude = req.session.userLongitude;
+
+  res.render('index', { title: 'Info - Svangur', userLatitude: userLatitude, userLongitude: userLongitude});
 }
 
 function info(req, res, next) {

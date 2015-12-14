@@ -48,7 +48,19 @@ var main = (function() {
             create(distance);
         });
 
-        getLocation();
+        latitude = document.querySelector('#sortByDistance').attributes.userLatitude.value;
+        longitude = document.querySelector('#sortByDistance').attributes.userLongitude.value;
+        latitude = parseFloat(latitude);
+        longitude = parseFloat(longitude);
+
+        if(isNaN(latitude)) {
+            getLocation();
+        }
+        else {
+            var distanceInput = document.querySelector('#distanceInput');
+            var distance = distanceInput.value;
+            create(distance);
+        }
 	}
 
     function create(distance) {
@@ -179,8 +191,8 @@ var main = (function() {
 function getLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
-            var distanceInput = document.querySelector('#distanceInput');
-            var distance = distanceInput.value;
+            // var distanceInput = document.querySelector('#distanceInput');
+            // var distance = distanceInput.value;
             // create(distance);
         } else { 
             console.log("Geolocation is not supported by this browser.");
