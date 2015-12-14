@@ -22,10 +22,18 @@ google.maps.event.addDomListener(window, 'load', init);
 	        calcRouteWalking();
 	    });
 
-		getLocation();
+	    initMap();
+		// getLocation();
 	}
 
 	function initMap() {
+		latitude = document.querySelector('#map').attributes.userLatitude.value;
+		longitude = document.querySelector('#map').attributes.userLongitude.value;
+		latitude = parseFloat(latitude);
+		longitude = parseFloat(longitude);
+		
+		console.log(latitude);
+		console.log(longitude);
 		directionsDisplay = new google.maps.DirectionsRenderer;
 		directionsService = new google.maps.DirectionsService;
 		var map = new google.maps.Map(document.getElementById('map'), {
@@ -96,19 +104,19 @@ google.maps.event.addDomListener(window, 'load', init);
 	    });
 	}
 
-	function getLocation() {
-	    if (Modernizr.geolocation) {
-	        navigator.geolocation.getCurrentPosition(showPosition);
-	    } else { 
-	        console.log("Geolocation is not supported by this browser.");
-	    }
-	}
+	// function getLocation() {
+	//     if (Modernizr.geolocation) {
+	//         navigator.geolocation.getCurrentPosition(showPosition);
+	//     } else { 
+	//         console.log("Geolocation is not supported by this browser.");
+	//     }
+	// }
 
-    function showPosition(position) {
-        latitude = position.coords.latitude;
-        longitude = position.coords.longitude;
-        initMap();
-    }
+ //    function showPosition(position) {
+ //        latitude = position.coords.latitude;
+ //        longitude = position.coords.longitude;
+ //        initMap();
+ //    }
 
  //    	function getLocation() {
 	//     if (navigator.geolocation) {
