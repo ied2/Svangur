@@ -91,3 +91,14 @@
 
 
 /*No collapse*/
+
+/*Logo*/
+.navbar-brand {
+    float: right;
+}
+
+/*Open sidebar*/
+.slideOptions {
+    margin-left: 13px;
+    float: left;
+}
