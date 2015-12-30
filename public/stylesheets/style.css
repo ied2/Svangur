@@ -50,6 +50,10 @@ body {
 
 @media(max-width:768px) {
 
+	body {
+		background: #000000;
+	}
+
 	.rContainer > img {
 		max-width: 100px;
 		max-height: 100px;

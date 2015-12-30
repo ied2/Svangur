@@ -8,11 +8,25 @@ var utils = require('../lib/utils');
 router.get('/', index);
 router.get('/error', error);
 router.get('/getRestaurants', getRestaurants);
-router.get('/:id([0-9]{1,8})', info)
+router.get('/:id([0-9]{1,8})', info);
+router.get('/feelinglucky', feelingLucky);
 
 module.exports = router;
 
 /** route middlewares **/
+
+function feelingLucky(req, res, next) {
+  var userLatitude = req.session.userLatitude;
+  var userLongitude = req.session.userLongitude;
+  var distance = req.session.distance;
+
+  console.log(userLatitude);
+  console.log(userLongitude);
+  console.log(distance);
+
+
+  res.render('feelinglucky', {title: 'Feeling Lucky - Svangur'});
+}
 
 function index(req, res, next) {
   var userLatitude = req.session.userLatitude;
@@ -51,6 +65,7 @@ function info(req, res, next) {
 function getRestaurants(req, res) {
   req.session.userLatitude = req.query.latitude;
   req.session.userLongitude = req.query.longitude;
+  req.session.distance = req.query.distance;
 
   var distance = req.query.distance*1000;
   var latitude = req.query.latitude;

@@ -17,6 +17,11 @@ var main = (function() {
         var allCheckBox = document.querySelector('#all');
         var dice = document.querySelector('.dice');
         var sort = document.querySelector('#sortByDistance');
+        // var feelingLucky = document.querySelector('#feelinglucky');
+
+        // feelingLucky.addEventListener('click', function() {
+            
+        // });
 
         for(var i = 0; i < checkbox.length; i++) {
             checkbox[i].addEventListener('click', function() {
@@ -158,6 +163,8 @@ var main = (function() {
             }
         }
 
+        shuffle(x);
+
         if(document.querySelector('#sortByDistance').checked == true) x.sort(sort_by("distance", false, function(a){return a}));
 
         var myNode = document.querySelector(".res-data");
@@ -197,6 +204,11 @@ function getLocation() {
         } else { 
             console.log("Geolocation is not supported by this browser.");
         }
+    }
+
+    function shuffle(o){
+        for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+        return o;
     }
 
     function showPosition(position) {
