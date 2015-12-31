@@ -4,9 +4,9 @@ block content
 	div#wrapper
 		div#sidebar-wrapper
 			ul.sidebar-nav
-				//- li.feelinglucky
-				//- 	a(href="feelinglucky") Feeling Lucky !
-				//- 		img.dice#feelinglucky(src="/images/dice.png" href="www.google.com")
+				li.feelinglucky
+					a(href="feelinglucky") Feeling Lucky !
+						img.dice#feelinglucky(src="/images/dice.png")
 				li
 					div.checkbox
 						label(for="sortByDistance") Order By Distance
@@ -18,7 +18,7 @@ block content
 					hr(align="left" width="100%")
 				li
 					div.checkbox
-						label(for="all") All Below
+						label(for="all") Everything
 						input#all(type="checkbox" checked)
 				li.hrLineBreak
 					hr(align="left" width="100%")
@@ -93,6 +93,7 @@ block content
 						button.btn.btn-primary(type="submit") Senda
 	div.container-fluid
 		div.row.res-data
+	<div id="ajaxloader"></div>
 
 
 

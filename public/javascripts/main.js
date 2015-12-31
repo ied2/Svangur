@@ -17,11 +17,6 @@ var main = (function() {
         var allCheckBox = document.querySelector('#all');
         var dice = document.querySelector('.dice');
         var sort = document.querySelector('#sortByDistance');
-        // var feelingLucky = document.querySelector('#feelinglucky');
-
-        // feelingLucky.addEventListener('click', function() {
-            
-        // });
 
         for(var i = 0; i < checkbox.length; i++) {
             checkbox[i].addEventListener('click', function() {
@@ -192,6 +187,7 @@ var main = (function() {
             newdiv.appendChild(elem);
             newdiv.appendChild(dist);
         }
+    document.querySelector('#ajaxloader').style.display = 'none';
 }
 
 // Problem create() called twice

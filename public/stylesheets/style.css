@@ -171,3 +171,28 @@ body {
 	width:100%;
 	height: 400px;
 }
+
+/*Loading icon*/
+
+#ajaxloader {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	border: 8px solid #fff;
+	border-right-color: transparent;
+	border-radius: 50%;
+	box-shadow: 0 0 25px 2px #eee;
+	margin: 0 auto;
+	left: 50%;
+    top: 50%;
+}
+
+#ajaxloader {
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	from { transform: rotate(0deg);   opacity: 0.2; }
+	50%  { transform: rotate(180deg); opacity: 1.0; }
+	to   { transform: rotate(360deg); opacity: 0.2; }
+}

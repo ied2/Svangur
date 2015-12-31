@@ -18,14 +18,30 @@ module.exports = router;
 function feelingLucky(req, res, next) {
   var userLatitude = req.session.userLatitude;
   var userLongitude = req.session.userLongitude;
-  var distance = req.session.distance;
+  var distance = req.session.distance*1000;
 
   console.log(userLatitude);
   console.log(userLongitude);
   console.log(distance);
 
+  utils.listRestaurants(function (err, all) {
 
-  res.render('feelinglucky', {title: 'Feeling Lucky - Svangur'});
+    var restaurants = utils.listRestaurantsInRadius(all, distance, userLatitude, userLongitude);
+
+    var restaurant = restaurants[Math.floor(Math.random()*restaurants.length)];
+
+    var url = restaurant.url;
+    url = url.trim();
+    if(url == "NULL") url = "";
+
+    var phoneNumber = restaurant.phonenumber;
+    phoneNumber = phoneNumber.trim();
+    if(phoneNumber == "NULL") phoneNumber = "";
+    
+    res.render('feelinglucky', {title: 'Feeling Lucky - Svangur', name: restaurant.name, address: restaurant.address, phoneNumber: phoneNumber,
+                        url: url, logo: restaurant.logo, latitude : restaurant.horizontal, longitude: restaurant.vertical,
+                        userLatitude: userLatitude, userLongitude: userLongitude});
+  });
 }
 
 function index(req, res, next) {
