@@ -102,3 +102,12 @@
     margin-left: 13px;
     float: left;
 }
+
+/*Shadow line under navbar*/
+
+.shadow {
+    box-shadow: 0 4px 4px -2px #232323;
+    -moz-box-shadow: 0 4px 4px -2px #232323;
+    -webkit-box-shadow: 0 4px 4px -2px #232323;
+}
+
