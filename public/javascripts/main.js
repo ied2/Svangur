@@ -167,6 +167,8 @@ var main = (function() {
             myNode.removeChild(myNode.firstChild);
         }
 
+        document.querySelector('#ajaxloader').style.display = 'block';
+
         for (var i=0; i<x.length; i++) {
 
             var ni = document.querySelector(".res-data");

@@ -111,3 +111,27 @@
     -webkit-box-shadow: 0 4px 4px -2px #232323;
 }
 
+/*Back button*/
+
+.btn.pri.btn-xs {
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+    background: #252839;
+    margin-top: 13px;
+    margin-left: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-color: rgb(60, 61, 90);
+    border-width: 2px;
+    border-radius: 5px;
+}
+
+/*.btn.pribtn-xs { background: #59d; }
+
+.btn.pribtn-xs:hover { background: #48c; }*/
+
+.feel { margin-top: 10px !important; }
+
+
