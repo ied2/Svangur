@@ -1,0 +1,90 @@
+doctype html
+html
+	head
+		title= title
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(href='/stylesheets/Bootstrap/bootstrap.css', rel='stylesheet')
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='/stylesheets/navbar.css')
+		script(type='text/javascript' src='/javascripts/jquery.js')
+		script(type='text/javascript' src='/javascripts/bootstrap/Bootstrap.js')
+	body
+		div.navbar.navbar-inverse.navbar-fixed-top.shadow
+			div.navbar-header
+				button#backButton.feel.btn.pri.btn-xs.hidden-sm.hidden-md.hidden-lg Back
+				a.navbar-brand.hidden-xs.navbar-left(href="javascript:history.back()") Svangur
+				a.navbar-brand.visible-xs.navbar-left(href="javascript:history.back()") Svangur
+		div
+			if post
+				if !success
+					p.failed Villa við að útbúa notanda
+				else
+					p.success User created
+			form.addform(role="form" action="/addrestaurant" method="post")
+				div.col-xs-12
+					div.col-xs-3
+						label(for="name") Name
+						input.form-control#name(type="text" name="name")
+						label(for="address") address
+						input.form-control#address(type="text" name="address")
+						label(for="city") city
+						input.form-control#city(type="text" name="city")
+						label(for="zip") zip
+						input.form-control#zip(type="text" name="zip")
+					div.col-xs-3
+						label(for="formattedaddress") formattedaddress
+						input.form-control#formattedaddress(type="text" name="formattedaddress")
+						label(for="latitude") latitude
+						input.form-control#latitude(type="text" name="latitude")
+						label(for="longitude") longitude
+						input.form-control#longitude(type="text" name="longitude")
+						label(for="logo") logo
+						input.form-control#logo(type="text" name="logo")
+					div.col-xs-3
+						label(for="phonenumber") phonenumber
+						input.form-control#phonenumber(type="text" name="phonenumber")
+						label(for="url") url
+						input.form-control#url(type="url" name="url")
+						label(for="pizza") pizza
+						input.form-control#pizza(type="text" name="pizza")
+						label(for="hamburger") hamburger
+						input.form-control#hamburger(type="text" name="hamburger")
+					div.col-xs-3
+						label(for="sushi") sushi
+						input.form-control#sushi(type="text" name="sushi")
+						label(for="seafood") seafood
+						input.form-control#seafood(type="text" name="seafood")
+						label(for="steak") steak
+						input.form-control#steak(type="text" name="steak")
+						label(for="indian") indian
+						input.form-control#indian(type="text" name="indian")
+					div.col-xs-3
+						label(for="italian") italian
+						input.form-control#italian(type="text" name="italian")
+						label(for="american") american
+						input.form-control#american(type="text" name="american")
+						label(for="asian") asian
+						input.form-control#asian(type="text" name="asian")
+						label(for="french") french
+						input.form-control#french(type="text" name="french")
+					div.col-xs-3
+						label(for="vegan") vegan
+						input.form-control#vegan(type="text" name="vegan")
+						label(for="vegetarian") vegetarian
+						input.form-control#vegetarian(type="text" name="vegetarian")
+						label(for="fastfood") fastfood
+						input.form-control#fastfood(type="text" name="fastfood")
+						label(for="fancy") fancy
+						input.form-control#fancy(type="text" name="fancy")
+					div.col-xs-3
+						label(for="mexican") mexican
+						input.form-control#mexican(type="text" name="mexican")
+						label(for="healthy") healthy
+						input.form-control#healthy(type="text" name="healthy")
+				Button.btn.btn-success(type='submit' style="margin-top: 20px") Submit
+				p Dæmi um hvernig skal hafa values:
+				img(src="/images/db1.jpg")
+				img(src="/images/db2.jpg")
+

@@ -197,3 +197,12 @@ body {
 	50%  { transform: rotate(180deg); opacity: 1.0; }
 	to   { transform: rotate(360deg); opacity: 0.2; }
 }
+
+/*Add form*/
+.addform {
+    max-width: 800px;
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 80px;
+    padding: 20px;
+}

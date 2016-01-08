@@ -10,6 +10,8 @@ router.get('/error', error);
 router.get('/getRestaurants', getRestaurants);
 router.get('/:id([0-9]{1,8})', info);
 router.get('/feelinglucky', feelingLucky);
+router.get('/addrestaurant', addRestaurant);
+router.post('/addrestaurant', addRestaurantPost);
 
 module.exports = router;
 
@@ -104,4 +106,60 @@ function getRestaurants(req, res) {
 function error(req, res) {
   // Caught and passed down to the errorHandler middleware
   throw new Error('borked!');
+}
+
+function addRestaurant(req, res, next) {
+
+    res.render('addrestaurant', { title: 'Info - Add Restaurant'});
+}
+
+function addRestaurantPost(req, res, next) {
+  
+
+  utils.getMaxId(function (err, all) {
+    var name = req.body.name;
+    var address = req.body.address;
+    var city = req.body.city;
+    var zip = req.body.zip;
+    var formattedaddress = req.body.formattedaddress;
+    var horizontal = req.body.latitude;
+    var vertical = req.body.longitude;
+    var logo = req.body.logo;
+    var phonenumber = req.body.phonenumber;
+    var url = req.body.url;
+    var pizza = req.body.pizza;
+    var hamburger = req.body.hamburger;
+    var sushi = req.body.sushi;
+    var seafood = req.body.seafood;
+    var steak = req.body.steak;
+    var indian = req.body.indian;
+    var italian = req.body.italian;
+    var american = req.body.american;
+    var asian = req.body.asian;
+    var french = req.body.french;
+    var vegan = req.body.vegan;
+    var vegetarian = req.body.vegetarian;
+    var fastfood = req.body.fastfood;
+    var fancy = req.body.fancy;
+    var mexican = req.body.mexican;
+    var healthy = req.body.healthy;
+
+    var restaurant_id = (all[0].max) + 1;
+    console.log(restaurant_id);
+
+  utils.addRest(restaurant_id,name, address, city, zip, formattedaddress, horizontal, vertical, logo, phonenumber,
+                  url, pizza, hamburger, sushi, seafood, steak, indian, italian, american, asian, french, vegan, vegetarian,
+                  fastfood, fancy, mexican, healthy, function (err, status) {
+    if (err) {
+      console.error(err);
+    }
+
+    var success = true;
+
+    if (err || !status) {
+      success = false;
+    }
+    res.render('addrestaurant', { title: 'Info - Add Restaurant', post: true, success: success});
+    });
+  });
 }
